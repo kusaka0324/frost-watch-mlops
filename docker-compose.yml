@@ -1,0 +1,16 @@
+services:
+  tracking-server:
+    build:
+      context: ./.docker/tracking-server/
+      dockerfile: Dockerfile
+    ports:
+      - "5001:5000"
+    networks:
+      - mlapp-network
+    volumes:
+      - .:/mlapp
+
+networks:
+  mlapp-network:
+    driver: bridge
+
